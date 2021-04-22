@@ -1,6 +1,5 @@
-
-
 #include "plane.h"
+Plane::Plane(){};
 Plane::Plane(int id, String plane, const char new_type[20], unsigned flights) : id(id), plane(plane), flights(flights) {}
 
 int Plane::get_id()
@@ -31,23 +30,18 @@ void Plane::read_file(ifstream &in)
 
 void Plane::input()
 {
-    cin.ignore();
     cin >> id;
-    cout << ' '; //do we need these?
     cin >> plane;
-    cout << ' ';
     cin >> type;
-    cout << ' ';
     cin >> flights;
-    cin.ignore();
 }
 
 void Plane::write_file(ofstream &out)
 {
     out << id << ' ';
-    out << plane << ' ';
+    out << plane.get_content() << ' ';
     out << type << ' ';
-    out << flights << endl;
+    out << flights;
 }
 
 void Plane::print()

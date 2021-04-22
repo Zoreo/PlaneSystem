@@ -1,6 +1,4 @@
-#pragma once
-#include <iostream>
-using namespace std;
+#include "string.h"
 
 unsigned strlength(const char *a)
 {
@@ -28,29 +26,19 @@ void strcopy(char *&b, const char *a)
     b[length] = 0;
 }
 
-class String
+int strcmp(const char* s1, const char* s2)
 {
-private:
-    char *content;
-    unsigned len;
-    char s[250];
+    while (*s1 && (*s1 == *s2))
+        s1++, s2++;
+    return *(const unsigned char*)s1 - *(const unsigned char*)s2;
+}
 
-public:
-    String();
-    String(const String &);
-    String(const char *); // String a = "asd";
-    ~String();
-    char *get_content();
-    // String operator+(String &); // String a, b.... String c = a + b;
-    // String &operator=(const String &);
-    // String &operator+=(String &);
-    char &operator[](int);
-    unsigned length() const;
-    friend ostream &operator<<(ostream &, String &);
-    friend istream &operator>>(istream &, String &);
-};
-
-char *String::get_content(){ return content; }
+char *String::get_content() { return content; }
+// void String::set_len
+void String::set_content(char buf[]){
+    strcopy(content, buf);
+    len = sizeof(buf)/sizeof(buf[0]);
+}
 
 String::String() : content(nullptr), len(0) {}
 
@@ -111,10 +99,15 @@ ostream &operator<<(ostream &os, String &s)
     if (s.content != nullptr)
         cout << s.content;
     return os;
+
 }
 istream &operator>>(istream &in, String &a)
 {
-    in >> a.s; //so that it only gets the first word
+    int size = 1024;
+    char *arr = new char[size];
+    in >> arr; //so that it only gets the first word
+    a.set_content(arr);
+    delete arr;
     return in;
 }
 

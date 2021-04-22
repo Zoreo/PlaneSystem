@@ -2,7 +2,7 @@
 
 #include <iostream>
 #include <fstream>
-#include "string.cpp" //so i dont have to do all the dynamic things by hand
+#include "string.h" //so i dont have to do all the dynamic things by hand
 
 // Id - определя еднозначно конкретен самолет (уникално цяло положително число);
 // Plane - име на самолет (низ, който е с динамична дължина);
@@ -19,9 +19,9 @@ private:
 
 public:
     Plane();
-    Plane(int id, String plane, const char type[20], unsigned flights);//dont really need that
-    ~Plane();//dont need that either, the vector and string classes delete themselves
-    
+    Plane(int id, String plane, const char type[20], unsigned flights); //dont really need that
+    ~Plane();                                                           //dont need that either, the vector and string classes delete themselves
+
     int get_id();
     String get_plane();
     const char *get_type() const;

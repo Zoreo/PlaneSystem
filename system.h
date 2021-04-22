@@ -1,13 +1,13 @@
 #pragma once
 
-#include "vector.cpp"
+#include "vector.h"
 #include "plane.h"
 
 class System
 {
 private:
-    String file= "Planes.db";
-    Vector <Plane *> planes; //what?
+    String file = "Planes.db";
+    Vector<Plane *> planes; //what?
 public:
     System();
     String get_file();
@@ -18,4 +18,3 @@ public:
 
     void user_menu();
 };
-

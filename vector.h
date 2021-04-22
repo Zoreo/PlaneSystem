@@ -38,9 +38,9 @@ public:
 
     int size() { return cur; }
 
-    T &operator[](const int i) 
-    { 
-        if(i >= 0 && i < cap)
+    T &operator[](const int i)
+    {
+        if (i >= 0 && i < cap)
             return arr[i];
         else
         {
