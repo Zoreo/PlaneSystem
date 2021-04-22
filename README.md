@@ -1,2 +1,2 @@
 # PlaneSystem
-system work with planes
+system that work with planes
