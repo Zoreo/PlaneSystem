@@ -36,16 +36,15 @@ void System::search()
 {
     int search_id;
     cin >> search_id;
-    for (int i = 0; i < planes.size(); ++i)
+    for (int i = 0; i < planes.size(); i++)
     {
         if (planes[i]->get_id() == search_id)
         {
             planes[i]->print();
+            return;
         }
-        else cout << "Record not found!" << endl;
-        return;
     }
-    cout << "Record not found!" << endl; //kinda wack but it works
+    cout << "Record not found!" << endl;
 }
 //create
 //100000 Mig-21 Fighter 100
@@ -53,6 +52,7 @@ void System::search()
 void System::user_menu()
 {
     String option;
+    cout << "type \"help\" for help" << endl;
     while (true)
     {
         cout << ": ";
@@ -74,13 +74,13 @@ void System::user_menu()
         }
         else if (strcmp(option.get_content(), "help") == 0)
         {
-            cout << "The following comnds are supported:\n";
-            cout << "create    creates a file\n";
+            cout << "The following commands are supported:\n";
+            cout << "create    creates an entry for a given plane\n";
             cout << "search    searches for a plane by its unique id\n";
             cout << "exit:     exits the program\n";
             cout << "help:     prints this information\n";
         }
         else
-            cout << "try again lmao, type \"help\" for help\n";
+            cout << "you messed up, press Ctrl + C to stop and try again";
     }
 }

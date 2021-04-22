@@ -7,7 +7,7 @@ class System
 {
 private:
     String file = "Planes.db";
-    Vector<Plane *> planes; //what?
+    Vector<Plane *> planes; 
 public:
     System();
     String get_file();

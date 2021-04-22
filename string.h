@@ -16,17 +16,12 @@ public:
     ~String();
     char *get_content();
     void set_content(char buf[]);
-    // String operator+(String &); // String a, b.... String c = a + b;
-    // String &operator=(const String &);
-    // String &operator+=(String &);
     char &operator[](int);
     unsigned length() const;
     friend ostream &operator<<(ostream &, String &);
     friend istream &operator>>(istream &, String &);
 };
 
-int strcmp(const char* s1, const char* s2);
 void strcopy(char *&b, const char *a);
+int strcmp(const char *s1, const char *s2);
 unsigned strlength(const char *a);
-
-
